@@ -10,5 +10,8 @@ For NASA, this allowed them to apply this framework to numerous projects, includ
 
 Read up on more information about Trick [here](https://github.com/nasa/trick?tab=readme-ov-file).
 # Setting Up
+If you are starting from scratch, NASA has very well written documentation about the [install steps](https://nasa.github.io/trick/documentation/install_guide/Install-Guide).
+
+I highly recommend you complete the [cannonball tutorial](https://nasa.github.io/trick/tutorial/Tutorial) before proceeding to get comfortable with the basics of how Trick is setup and ran. 
 # Results
 # Conclusion 
