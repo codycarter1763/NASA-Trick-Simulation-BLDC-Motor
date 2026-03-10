@@ -1,4 +1,6 @@
 # NASA Trick Simulation of BLDC Motor
+<img width="1848" height="940" alt="RPM Ctasle Motor" src="https://github.com/user-attachments/assets/0f41a4d6-699f-4cef-ac3c-ed4590e83f26" />
+
 # About
 
 # What is Trick
