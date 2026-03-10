@@ -108,25 +108,40 @@ $$RPM = \omega \times \frac{60}{2\pi}$$
 Moving those equation to code, Trick provides the implementations to intergrate and derive equations provided you set them up properly. For the sake of brevity, the exact implementation can be viewed in the included dependencies in the **SIM_BLDC_Motor / models / include + src** directories.
 
 ## General File Setup
-Trick requires a specific setup to be able to simulate properly, for more specific information, view their documentation. 
+Trick requires a specific setup to be able to simulate properly, for more specific information, view their documentation. Once built, more files will be populated here, but I only listed one files I had to add or edit.
 
 ```
 SIM_BLDC_Motor/
-├── S_define                  # Assigns jobs to Trick's scheduler
-├── makefile                  # Build configuration (Made by Trick compilation command)
+├── S_define                              # Assigns jobs to Trick's scheduler
+├── makefile                              # Build configuration (Made by Trick compilation command)
 ├── RUN_test/
-│   └── input.py              # Runtime parameters and data recording
-├── Input Voltage Monte Carlo # Holds different values to try (I used voltages for my testing)
+│   └── input.py                          # Runtime parameters and data recording
+├── Input Voltage Monte Carlo             # Holds different values to try (I used varying voltages for my testing)
+├── S_overrides.mk                        # Sets path location for include and src files
+├── BLDC_Display                          # Python code for recieving variables from Trick server using TCP
+├── Modified_data/
+│   └── realtime.py                       # Configuration for simulation control
 └── models/bldc/
     ├── include/
-    │   ├── bldc.h            # Motor struct and function prototypes
-    │   └── bldc_analytic.h   # Analytic model prototype
+    │   ├── bldc.h                        # Motor struct and function prototypes
+    │   └── bldc_analytic.h               # Analytic model prototype
     └── src/
-        ├── bldc_motor_default_data.c   # Sets motor parameters
-        ├── bldc_motor_init.c           # Initializes state from ICs
-        ├── bldc_motor_analytic.c       # Physics equations + integration
-        └── bldc_motor_shutdown.c       # Prints final results
+        ├── bldc_motor_default_data.c     # Sets motor parameters
+        ├── bldc_motor_deriv.c            # Derives motor equations
+        ├── bldc_motor_integ.c            # Intergrates motor equations
+        ├── bldc_motor_init.c             # Initializes state from ICs
+        ├── bldc_motor_analytic.c         # Physics equations + integration
+        └── bldc_motor_shutdown.c         # Prints final results
 ```
 
 # Results
+Once built and opened, you can now view the results of different parameters of the brushless motor. Below are some examples of the types of plots you can expect to see.
+
+## Single Variable Plots
+### 
+## Monte Carlo Plot
+Viewing a Monte Carlo plot allows you to run the simulation multiple times with different parameters. To demonstrate this, I added an input file with different LiPO battery voltages from 2S (7.4V) to 6S (22.2V) to show the RPM increase as voltage increases.
+
+<img width="1848" height="940" alt="RPM Ctasle Motor" src="https://github.com/user-attachments/assets/0f41a4d6-699f-4cef-ac3c-ed4590e83f26" />
+## Python TCP Display
 # Conclusion 
