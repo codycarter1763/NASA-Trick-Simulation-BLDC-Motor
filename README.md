@@ -160,4 +160,17 @@ Below shows what happens to motor RPM as the load increases. The simulation was 
 ## Python TCP Display
 With each Trick simulation, a TCP server is started to allow an external program to request and access data for external processing. For example, I included a Python script that will connect to the Trick port, request motor RPM and current, and then print the data out in the command line.
 
+Below is what would show in the command line as an example.
+
+| Message Type | RPM | Current (A) |
+|---|---|---|
+| 0 | 48,247 | 12.56 |
+| 0 | 48,589 | 12.69 |
+| 0 | 48,591 | 12.69 |
+| 0 | 48,591 | 12.69 |
+| 0 | 48,591 | 12.69 |
+
 # Conclusion 
+This repository shows my learning journey of NASA's Trick Simulation Environment by modeling a brushless DC motor. Using core electrical and mechanical equations of a brushless DC motor, including parameters of phase, back-EMF, torque contants, rotor inertia, and viscous damping, allows for a simulated physics model to be realized and analyzed.
+
+This is just one of the many ways that Trick can be used to realize data and simulate physics. Try it out for yourself!
