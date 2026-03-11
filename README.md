@@ -138,10 +138,26 @@ SIM_BLDC_Motor/
 Once built and opened, you can now view the results of different parameters of the brushless motor. Below are some examples of the types of plots you can expect to see.
 
 ## Single Variable Plots
-### 
+Below shows single variable plots that demonstrate how brushless motors operate showing how as RPM increases, motor current goes down inversely with the increasing back EMF. This is the main reason brushless motors are super efficient and don't produce a ton of heat during operation.
+
+### Motor Current
+<img width="680" height="662" alt="Input Current Plot" src="https://github.com/user-attachments/assets/e355ef7d-ae43-4daa-93d6-b3267172dcef" />
+
+### Motor Back_EMF
+<img width="680" height="662" alt="Back_EMF Plot" src="https://github.com/user-attachments/assets/94f60ffe-328c-4fe9-a1c5-6970992ab436" />
+
 ## Monte Carlo Plot
+### RPM as Voltage Increases
 Viewing a Monte Carlo plot allows you to run the simulation multiple times with different parameters. To demonstrate this, I added an input file with different LiPO battery voltages from 2S (7.4V) to 6S (22.2V) to show the RPM increase as voltage increases.
 
 <img width="1848" height="940" alt="RPM Ctasle Motor" src="https://github.com/user-attachments/assets/0f41a4d6-699f-4cef-ac3c-ed4590e83f26" />
+
+### RPM as Load Increases
+Below shows what happens to motor RPM as the load increases. The simulation was done with a 6S (22.2V) input and with a load range from 0.0 - 8.0 N.
+
+<img width="1848" height="940" alt="RPM as Load Increases 6S" src="https://github.com/user-attachments/assets/bd8be55f-16e5-4c6e-b3c9-ac01477939ee" />
+
 ## Python TCP Display
+With each Trick simulation, a TCP server is started to allow an external program to request and access data for external processing. For example, I included a Python script that will connect to the Trick port, request motor RPM and current, and then print the data out in the command line.
+
 # Conclusion 
