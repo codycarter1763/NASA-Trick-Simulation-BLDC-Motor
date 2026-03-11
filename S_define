@@ -1,0 +1,26 @@
+/************************TRICK HEADER*************************
+PURPOSE:
+    (S_define file for SIM_BLDC_Motor)
+LIBRARY DEPENDENCIES:
+    (
+      (bldc/src/bldc_motor_default_data.c)
+      (bldc/src/bldc_motor_init.c)
+      (bldc/src/bldc_motor_analytic.c)
+      (bldc/src/bldc_motor_shutdown.c)
+    )
+*************************************************************/
+#include "sim_objects/default_trick_sys.sm"
+##include "bldc/include/bldc_analytic.h"
+
+class BLDCSimObject : public Trick::SimObject {
+public:
+    BLDC_MOTOR motor;
+    BLDCSimObject() {
+        ("default_data")    bldc_motor_default_data(&motor);
+        ("initialization")  bldc_motor_init(&motor);
+        (0.001, "scheduled") bldc_motor_analytic(&motor);
+        ("shutdown")        bldc_motor_shutdown(&motor);
+    }
+};
+
+BLDCSimObject bldc_sim;
